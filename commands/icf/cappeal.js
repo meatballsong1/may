@@ -31,7 +31,7 @@ module.exports = class credits extends Command {
     }
 
     hasPermission(message) {
-        if (!message.member.roles.cache.has('781717353057484822')) return 'Sorry :tired_face: You must be an ICF Member! :raised_hands:'
+        if (!message.member.roles.cache.has('1402419162118225930')) return 'Sorry :tired_face: You must be an ICF Member! :raised_hands:'
         return true
     }
     async run(message, args) {

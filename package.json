@@ -20,6 +20,5 @@
     "winston": "^3.3.3",
     "noblox.js": "^4.7.3",
     "mongodb": "^3.6.2",
-    "quick.db": "^7.1.2"
   }
 }
