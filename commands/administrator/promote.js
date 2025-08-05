@@ -22,7 +22,7 @@ module.exports = class promote extends Command {
   }
   
   hasPermission(message){
-    if(message.member.roles.find(role => role.name == "Admin")){
+    if(message.member.roles.cache.find(role => role.name == "Admin")){
       return true 
     } else {
       return "Sorry :persevere:! You must be an administrator to use this command!"
