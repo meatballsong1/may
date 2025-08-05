@@ -29,7 +29,7 @@ const client = new commando.CommandoClient({
 
 client.once("ready", () => {
   client.user.setPresence({
-    game: { name: "with oofbomb :D' },
+    game: { name: "with oofbomb :D" },
     status: "dnd"
   });
 });
