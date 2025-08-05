@@ -65,10 +65,10 @@ client.on("message", msgObject => {
         });
     } else {
     }
-  } else if (msgObject.channel.id == 787928641388019733) {
+  } else if (msgObject.channel.id == 1399456610157461574) {
     let Arguments = msgObject.content.split(" ");
     let channel = msgObject.client.guilds
-      .get("738014673722671155")
+      .get("1395025885278765177")
       .channels.find("id", Arguments[0]);
     let idMessage = Arguments[1];
     let JobId = Arguments[2];
@@ -83,7 +83,7 @@ client.on("message", msgObject => {
           .setTitle(`Server ${pppeh}`)
           .setTimestamp()
           .setURL(
-            `hhttps://www.roblox.com/games/4472988574/Riverside-CA?jobId=${JobId}`
+            `https://www.roblox.com/games/97947775346425/New-Haven-County?jobId=${JobId}`
           );
         Players = Players.split("|");
         Players.forEach(m => {
