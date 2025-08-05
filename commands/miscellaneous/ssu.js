@@ -26,13 +26,13 @@ module.exports = class changelog extends Command {
   hasPermission(msgObject) {
     const MainServer = msgObject.client.guilds.get("1395025885278765177");
     if (msgObject.guild.id == 1395025885278765177) {
-      if (msgObject.member.roles.find(role => role.name === "Admin")) {
+      if (msgObject.member.roles.cache.find(role => role.name === "Admin")) {
         return true;
       } else if (
         msgObject.author == this.client.users.get("753778820733206629")
       ) {
         return true;
-      } else if (msgObject.member.roles.find(role => role.name == "Moderator")) {
+      } else if (msgObject.member.roles.cache.find(role => role.name == "Moderator")) {
         return true;
       }
       

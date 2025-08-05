@@ -24,9 +24,9 @@ module.exports = class getservercommand extends Command {
   hasPermission(msgObject) {
     const MainServer = msgObject.client.guilds.get("1395025885278765177");
     if (msgObject.guild.id == 1395025885278765177) {
-      if (msgObject.member.roles.find(role => role.name === "Moderator")) {
+      if (msgObject.member.roles.cache.find(role => role.name === "Moderator")) {
         return true;
-      } else if (msgObject.member.roles.find(role => role.name === "Admin")) {
+      } else if (msgObject.member.roles.cache.find(role => role.name === "Admin")) {
         return true;
       }
       return "Sorry 😣! You must be a Moderator or Admin!";

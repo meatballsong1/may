@@ -25,7 +25,7 @@ module.exports = class id extends Command {
     });
   }
   hasPermission(msgObject) {
-    if (msgObject.member.roles.find(role => role.name === "Admin")) {
+    if (msgObject.member.roles.cache.find(role => role.name === "Admin")) {
       return true;
     }
     return "Sorry :persevere:! You must be a Admin!";
