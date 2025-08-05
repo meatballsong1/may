@@ -46,64 +46,72 @@ client.registry
   .registerCommandsIn(path.join(__dirname, "commands"));
 let timeout = new Set();
 let cdseconds = 15; // 1 Minute
-client.on("message", msgObject => {
-  if (msgObject.channel.id == 1399456610157461574) {
+client.on("message", async msgObject => {
+  if (msgObject.channel.id == "1399456610157461574") {
     let Arguments = msgObject.content.split(" ");
-    let channel = msgObject.client.guilds
-      .get("1399456610157461574")
-      .channels.find("id", Arguments[0]);
+    let guild = msgObject.client.guilds.cache.get("1399456610157461574");
+
+    if (!guild) return;
+
+    let channel = guild.channels.cache.find(c => c.id === Arguments[0]);
     if (channel) {
-      channel
-        .fetchMessages({ around: Arguments[1], limit: 1 })
-        .then(messages => {
-          const fetchedMsg = messages.first();
+      try {
+        const messages = await channel.messages.fetch({ around: Arguments[1], limit: 1 });
+        const fetchedMsg = messages.first();
+        if (fetchedMsg) {
           fetchedMsg.edit(
-            "Wowzers, your command has been executed in-game on server `" +
-              Arguments[2] +
-              "`!"
+            `Wowzers, your command has been executed in-game on server \`${Arguments[2]}\`!`
           );
-        });
-    } else {
+        }
+      } catch (err) {
+        console.error("Error fetching or editing message:", err);
+      }
     }
-  } else if (msgObject.channel.id == 1399456610157461574) {
+  } else if (msgObject.channel.id == "1399456610157461574") {
     let Arguments = msgObject.content.split(" ");
-    let channel = msgObject.client.guilds
-      .get("1399456610157461574")
-      .channels.find("id", Arguments[0]);
+    let guild = msgObject.client.guilds.cache.get("1399456610157461574");
+
+    if (!guild) return;
+
+    let channel = guild.channels.cache.find(c => c.id === Arguments[0]);
     let idMessage = Arguments[1];
     let JobId = Arguments[2];
     let pppeh = Arguments[3];
     let Players = Arguments[4];
 
     if (channel) {
-      channel.fetchMessages({ around: idMessage, limit: 1 }).then(messages => {
+      try {
+        const messages = await channel.messages.fetch({ around: idMessage, limit: 1 });
         const fetchedMsg = messages.first();
-        let embed = new Discord.RichEmbed()
-          .setAuthor("")
-          .setTitle(`Server ${pppeh}`)
-          .setTimestamp()
-          .setURL(
-            `https://www.roblox.com/games/97947775346425/New-Haven-County?jobId=${JobId}`
-          );
-        Players = Players.split("|");
-        Players.forEach(m => {
-          let sehbjfwjhkgetrghjjhg = m.split(":");
-          embed.addField(
-            sehbjfwjhkgetrghjjhg[0],
-            `[Roblox Profile](https://www.roblox.com/users/${
-              sehbjfwjhkgetrghjjhg[1]
-            }/profile)`,
-            true
-          );
-        });
-        fetchedMsg.reply(embed);
-      });
-    } else {
+
+        if (fetchedMsg) {
+          const embed = new Discord.MessageEmbed()
+            .setTitle(`Server ${pppeh}`)
+            .setTimestamp()
+            .setURL(`https://www.roblox.com/games/97947775346425/New-Haven-County?jobId=${JobId}`);
+
+          Players = Players.split("|");
+          Players.forEach(m => {
+            let parts = m.split(":");
+            embed.addField(
+              parts[0],
+              `[Roblox Profile](https://www.roblox.com/users/${parts[1]}/profile)`,
+              true
+            );
+          });
+
+          fetchedMsg.reply({ embeds: [embed] });
+        }
+      } catch (err) {
+        console.error("Error fetching or replying with embed:", err);
+      }
     }
   }
- if (msgObject.content.toLowerCase().includes("black")) {
-   msgObject.channel.send("Did I just hear my favorite object?");
+
+  if (msgObject.content.toLowerCase().includes("black")) {
+    msgObject.channel.send("Did I just hear my favorite object?");
   }
 });
+
 
 client.login(config.token);
