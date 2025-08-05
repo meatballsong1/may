@@ -9,9 +9,10 @@ app.get("/", (request, response) => {
 const listener = server.listen(process.env.PORT, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });
-setInterval(() => {
-  http.get(`https://glitch.com/~mayflowers-lolz`);
-}, 4800000);
+//
+//setInterval(() => {
+ // http.get(`https://glitch.com/~mayflowers-lolz`);
+//}, 4800000);
 
 const Discord = require("discord.js");
 const commando = require("discord.js-commando");
@@ -19,7 +20,7 @@ const request = require("request-promise");
 const path = require("path");
 const config = require(path.join(__dirname, "config", "config.json"));
 const client = new commando.CommandoClient({
-  owner: "753778820733206629",
+  owner: "1160424627521212417",
   commandPrefix: ";",
   unknownCommandResponse: false,
   selfbot: false,
@@ -28,8 +29,8 @@ const client = new commando.CommandoClient({
 
 client.once("ready", () => {
   client.user.setPresence({
-    game: { name: "with Gavin's little sister" },
-    status: "online"
+    game: { name: "with oofbomb :D' },
+    status: "dnd"
   });
 });
 
