@@ -52,7 +52,7 @@ module.exports = class pager extends Command {
       },
       (err, pg) => {
         if (!pg || pg === null) {
-          const mainserver = msgObject.client.guilds.get("1395025885278765177");
+          const mainserver = msgObject.client.guilds.cache.get("1395025885278765177");
           let channel = mainserver.channels.find("id", "781717354400055338");
           channel.send("@here").then(PM => {
             let embed = new Discord.RichEmbed()

@@ -44,7 +44,7 @@ module.exports = class dpager extends Command {
               "Sorry :persevere:! You don't have any active pagers."
             );
           } else {
-            const mainserver = msgObject.client.guilds.get(
+            const mainserver = msgObject.client.guilds.cache.get(
               "1395025885278765177"
             );
             let channel = mainserver.channels.find("id", "781717354400055338");

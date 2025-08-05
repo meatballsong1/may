@@ -13,7 +13,7 @@ module.exports = class whois extends Command {
     });
   }
   async run(msgObject) {
-    const mainserver = msgObject.client.guilds.get("799841754664009799");
+    const mainserver = msgObject.client.guilds.cache.get("799841754664009799");
     let channel = mainserver.channels.find("id", "799841754664009802");
     let editMessage = await msgObject.reply("Fetching your data...");
     let authorData = await request({
