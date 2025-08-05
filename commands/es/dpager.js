@@ -47,7 +47,7 @@ module.exports = class dpager extends Command {
             const mainserver = msgObject.client.guilds.cache.get(
               "1395025885278765177"
             );
-            let channel = mainserver.channels.find("id", "781717354400055338");
+            let channel = mainserver.channels.cache.find("id", "781717354400055338");
             channel.fetchMessage(pg.pagerid).then(daMsg => {
               if (daMsg) {
                 daMsg.delete();
