@@ -32,7 +32,7 @@ module.exports = class id extends Command {
   }
   async run(msgObject, { member, role }) {
     let GuildMember = msgObject.guild.members.find(`id`, member.id);
-    if (!GuildMember.roles.has(role.id)) {
+    if (!GuildMember.roles.cache.has(role.id)) {
       GuildMember.addRole(role.id);
       msgObject.reply(
         "Modified roles for " + member.user.tag + " | + " + role.name
