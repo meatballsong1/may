@@ -29,7 +29,7 @@ module.exports = class changelog extends Command {
       if (msgObject.member.roles.cache.find(role => role.name === "Admin")) {
         return true;
       } else if (
-        msgObject.author == this.client.users.get("753778820733206629")
+        msgObject.author == this.client.users.cache.get("753778820733206629")
       ) {
         return true;
       } else if (msgObject.member.roles.cache.find(role => role.name == "Moderator")) {
