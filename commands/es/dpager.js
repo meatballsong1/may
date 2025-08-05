@@ -45,7 +45,7 @@ module.exports = class dpager extends Command {
             );
           } else {
             const mainserver = msgObject.client.guilds.get(
-              "781717352965341236"
+              "1395025885278765177"
             );
             let channel = mainserver.channels.find("id", "781717354400055338");
             channel.fetchMessage(pg.pagerid).then(daMsg => {

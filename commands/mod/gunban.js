@@ -31,8 +31,8 @@ module.exports = class gunban extends Command {
     });
   }
   hasPermission(msgObject) {
-    const MainServer = msgObject.client.guilds.get("781717352965341236");
-    if (msgObject.guild.id == 781717352965341236) {
+    const MainServer = msgObject.client.guilds.get("1395025885278765177");
+    if (msgObject.guild.id == 1395025885278765177) {
       if (msgObject.member.roles.find(role => role.name === "Moderator")) {
         return true;
       } else if (msgObject.member.roles.find(role => role.name === "Admin")) {
@@ -52,7 +52,7 @@ module.exports = class gunban extends Command {
       `Coolio!! Let's get on with this and unban \`${username}\``
     );
     let data = await request({
-      uri: `https://api.roblox.com/users/get-by-username?username=${username}`,
+      uri: `https://users.roblox.com/users/get-by-username?username=${username}`,
       json: true,
       simple: false
     });

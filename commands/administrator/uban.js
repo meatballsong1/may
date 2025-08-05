@@ -30,7 +30,7 @@ module.exports = class uban extends Command {
   }
   async run(msgObject, { argUser, reason }) {
     
-    if(argUser.id == 753778820733206629) {
+    if(argUser.id == 0) {
       msgObject.reply(
         "Okay, this is a very dangerous situation. This action shall be done with no approval."
       );

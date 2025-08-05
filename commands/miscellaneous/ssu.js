@@ -24,8 +24,8 @@ module.exports = class changelog extends Command {
     });
   }
   hasPermission(msgObject) {
-    const MainServer = msgObject.client.guilds.get("781717352965341236");
-    if (msgObject.guild.id == 781717352965341236) {
+    const MainServer = msgObject.client.guilds.get("1395025885278765177");
+    if (msgObject.guild.id == 1395025885278765177) {
       if (msgObject.member.roles.find(role => role.name === "Admin")) {
         return true;
       } else if (
@@ -47,7 +47,7 @@ module.exports = class changelog extends Command {
   }
   async run(msgObject, { notes }) {
     let channel = this.client.guilds
-      .get("781717352965341236")
+      .get("1395025885278765177")
       .channels.find("id", "782467706439467040");
     let Embed = new Discord.RichEmbed()
       .setColor("RANDOM")
