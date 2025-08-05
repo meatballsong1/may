@@ -28,7 +28,7 @@ module.exports = class dpager extends Command {
   async run(msgObject, { pager }) {
     if (msgObject.channel.id == 781717354400055337) {
       mongoose.connect(
-        "mongodb+srv://mayflower:4n0u7VNQAlD3htqm@cluster0.5gvpx.mongodb.net/MayFLOWDATA?retryWrites=true&w=majority",
+        "mongodb+srv://oofbomb:O4xCLy7cUprSJGMl@cluster0.n8rkyln.mongodb.net",
         {
           useNewUrlParser: true,
           useUnifiedTopology: true,
