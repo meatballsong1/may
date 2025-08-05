@@ -19,6 +19,6 @@
     "trello": "^0.10.0",
     "winston": "^3.3.3",
     "noblox.js": "^4.7.3",
-    "mongodb": "^3.6.2",
+    "mongodb": "^3.6.2"
   }
 }
