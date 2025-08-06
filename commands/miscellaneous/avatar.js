@@ -19,7 +19,7 @@ module.exports = class avatar extends Command {
     });
   }
   async run(msgObject, { argUser }) {
-    let Embed = new Discord.RichEmbed()
+    let Embed = new Discord.MessageEmbed()
       .setAuthor(argUser.tag, argUser.avatarURL)
       .setColor("RANDOM")
       .setTitle("Avatar")
