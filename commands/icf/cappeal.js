@@ -4,7 +4,7 @@ const {
 } = require('discord.js-commando')
 
 const roblox = require("noblox.js")
-
+require('dotenv').config()
 module.exports = class credits extends Command {
     constructor(client) {
         super(client, {
