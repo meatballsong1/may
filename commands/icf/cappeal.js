@@ -68,7 +68,7 @@ module.exports = class credits extends Command {
       
         await roblox.setRank(groupID, playerID, rankID)
       }
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
                 .setTimestamp()
                 .setTitle(`${args.target}'s Citizenship Appeal`)
                 .setDescription(choice)
