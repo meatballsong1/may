@@ -43,7 +43,7 @@ module.exports = class SSUCommand extends Command {
       .get("1395025885278765177")
       .channels.cache.get("1398060322841170000");
 
-    const embed = new MessageEmbed()
+    const Embed = new MessageEmbed()
       .setColor("RANDOM")
       .setAuthor({
         name: msgObject.member.displayName,
