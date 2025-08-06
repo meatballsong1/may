@@ -20,10 +20,10 @@ module.exports = class avatar extends Command {
   }
   async run(msgObject, { argUser }) {
     let Embed = new Discord.MessageEmbed()
-      .setAuthor(argUser.tag, argUser.avatarURL)
+      .setAuthor(argUser.tag, argUser.avatarURL())
       .setColor("RANDOM")
       .setTitle("Avatar")
-      .setImage(argUser.avatarURL)
+      .setImage(argUser.avatarURL())
       .setTimestamp();
     msgObject.channel.send(Embed);
   }
