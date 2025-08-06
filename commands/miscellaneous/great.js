@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const { Command } = require("discord.js-commando");
+
 module.exports = class great extends Command {
   constructor(client) {
     super(client, {
@@ -10,19 +11,31 @@ module.exports = class great extends Command {
       guildOnly: true
     });
   }
-  async run(msgObject, { target, reason }) {
+
+  async run(msgObject) {
     const mainserver = msgObject.client.guilds.cache.get("1395025885278765177");
-    let channel = mainserver.channels.cache.find("id", "1400143051694801066");
-    channel
-      .fetchMessages()
-      .then(messages => {
-        let randomMsg = messages.random();
-        let made = new Date(randomMsg.createdTimestamp);
-        let date = made.toDateString();
-        msgObject.reply(
-          `<#1400143051694801066> - ${date}:\n\  ${randomMsg.content}`
-        );
-      })
-      .catch(console.error);
+    const channel = mainserver.channels.cache.get("1400143051694801066");
+
+    if (!channel || channel.type !== "text") {
+      return msgObject.reply("Couldn't find the #great-logs channel.");
+    }
+
+    try {
+      const messages = await channel.messages.fetch({ limit: 100 }); // adjust limit if needed
+      const randomMsg = messages.random();
+
+      if (!randomMsg) {
+        return msgObject.reply("No messages found in #great-logs.");
+      }
+
+      const date = new Date(randomMsg.createdTimestamp).toDateString();
+
+      msgObject.reply(
+        `<#1400143051694801066> - ${date}:\n${randomMsg.content}`
+      );
+    } catch (err) {
+      console.error(err);
+      msgObject.reply("There was an error fetching messages.");
+    }
   }
 };
