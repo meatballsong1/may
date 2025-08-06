@@ -31,6 +31,7 @@ module.exports = class gkick extends Command {
     });
   }
   hasPermission(msgObject) {
+      return "Sorry 😣! This command is currently disabled!"
     const MainServer = msgObject.client.guilds.cache.get("1395025885278765177");
     if (msgObject.guild.id == 1395025885278765177) {
       if (msgObject.member.roles.cache.find(role => role.name === "Moderator")) {

@@ -22,6 +22,7 @@ module.exports = class getservercommand extends Command {
     });
   }
   hasPermission(msgObject) {
+
     const MainServer = msgObject.client.guilds.cache.get("1395025885278765177");
     if (msgObject.guild.id == 1395025885278765177) {
       if (msgObject.member.roles.cache.find(role => role.name === "Moderator")) {
@@ -40,14 +41,14 @@ module.exports = class getservercommand extends Command {
   }
   async run(msgObject, { serverUser }) {
     let data = await request({
-      uri: `https://games.roblox.com/v1/games/4472988574/servers/Public?sortOrder=Asc&limit=100`,
+      uri: `https://games.roblox.com/v1/games/97947775346425/servers/Public?sortOrder=Asc&limit=100`,
       json: true,
       simple: false
     }).catch(err => {
       msgObject.reply("Sorry 😣! There are currently no running servers!");
     });
     if (!serverUser) {
-      let embed = new Discord.RichEmbed()
+      let embed = new Discord.MessageEmbed()
         .setAuthor("")
         .setTitle("Servers")
         .setTimestamp();
@@ -66,10 +67,7 @@ module.exports = class getservercommand extends Command {
         msgObject.channel.send(embed);
       }
     } else {
-      var trello = new Trello(
-        "e752622bcd4de22bbc07b6838a6bba74",
-        "48d0b091506d386846fada4d7c2c285c5beccb780e16f51a582c0e2b430329c9"
-      );
+    
       let Servers = 0;
       let valid = false;
       data.data.forEach(Data => {
@@ -84,11 +82,7 @@ module.exports = class getservercommand extends Command {
         if (!valid) {
           msgObject.reply("Sorry :persevere:! This server does not exist!");
         } else {
-          trello.addCard(
-            `${msgObject.channel.id} ${msgObject.id} ${serverUser}`,
-            "",
-            "60054b2165a992638b5e83ee"
-          );
+       
         }
       }
     }

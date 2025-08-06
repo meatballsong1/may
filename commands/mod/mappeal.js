@@ -27,6 +27,7 @@ module.exports = class credits extends Command {
   }
 
   hasPermission(message) {
+      return "Sorry 😣! This command is currently disabled!"
     if (!message.member.roles.cache.has("738015120445407333"))
       return "Sorry :tired_face: You must be an Moderator :raised_hands:";
     return true;
