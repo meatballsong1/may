@@ -58,10 +58,7 @@ module.exports = class SSUCommand extends Command {
       .addField(":book: Notes", `**__${notes}__**`)
       .setTimestamp();
 
-    channel.send({
-      content: "@here",
-      embeds: [embed]
-    });
+     channel.send("@here", Embed); // works in v12 btw
 
     msgObject.reply("Congrats 🙌! Your server startup has been announced!");
   }
