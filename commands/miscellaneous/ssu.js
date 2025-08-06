@@ -1,7 +1,7 @@
-const Discord = require("discord.js");
 const { Command } = require("discord.js-commando");
-const request = require("request-promise");
-module.exports = class changelog extends Command {
+const { MessageEmbed } = require("discord.js");
+
+module.exports = class SSUCommand extends Command {
   constructor(client) {
     super(client, {
       name: "ssu",
@@ -10,61 +10,59 @@ module.exports = class changelog extends Command {
       memberName: "ssu",
       description: "Posts a server startup to the #announcements channel",
       ownerOnly: true,
-                              throttling: {
+      throttling: {
         usages: 1,
         duration: 8000
       },
       args: [
         {
-          type: "string",
+          key: "notes",
           prompt: "What are the notes for the ssu?",
-          key: "notes"
+          type: "string"
         }
       ]
     });
   }
+
   hasPermission(msgObject) {
     const MainServer = msgObject.client.guilds.cache.get("1395025885278765177");
-    if (msgObject.guild.id == 1395025885278765177) {
-      if (msgObject.member.roles.cache.find(role => role.name === "Admin")) {
-        return true;
-      } else if (
-        msgObject.author == this.client.users.cache.get("1160424627521212417")
-      ) {
-        return true;
-      } else if (msgObject.member.roles.cache.find(role => role.name == "Moderator")) {
-        return true;
-      }
-      
+    if (msgObject.guild.id == "1395025885278765177") {
+      const hasRole = roleName =>
+        msgObject.member.roles.cache.some(role => role.name === roleName);
+      if (hasRole("Admin") || hasRole("Moderator")) return true;
+      if (msgObject.author.id === "1160424627521212417") return true;
+
       return "Sorry 😣! You must be a Moderator or Admin!";
     } else {
-      return (
-        "Sorry :persevere:! You must use this command in the " +
-        MainServer.name +
-        "!"
-      );
+      return `Sorry 😣! You must use this command in the ${MainServer?.name || "Main Server"}!`;
     }
   }
+
   async run(msgObject, { notes }) {
-    let channel = this.client.guilds.cache
+    const channel = this.client.guilds.cache
       .get("1395025885278765177")
-      .channels.cache.find("id", "782467706439467040");
-    let Embed = new Discord.RichEmbed()
+      .channels.cache.get("782467706439467040");
+
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
-      .setAuthor(
-        `${msgObject.member.displayName}`,
-        `${msgObject.author.avatarURL()}`
-      )
-      .setTitle(`Server Startup`)
+      .setAuthor({
+        name: msgObject.member.displayName,
+        iconURL: msgObject.author.displayAvatarURL()
+      })
+      .setTitle("Server Startup")
       .setDescription(`${msgObject.author} is conducting a server startup!`)
       .addField(
-        `:link: Link`,
+        ":link: Link",
         `[New Haven County](https://www.roblox.com/games/97947775346425/New-Haven-County)`
       )
-      .addField(`:book: Notes`, `**__${notes}__**`)
+      .addField(":book: Notes", `**__${notes}__**`)
       .setTimestamp();
-    channel.send("@here", Embed);
 
-    msgObject.reply(`Congrats 🙌! Your server startup has been announced!`);
+    channel.send({
+      content: "@here",
+      embeds: [embed]
+    });
+
+    msgObject.reply("Congrats 🙌! Your server startup has been announced!");
   }
 };
