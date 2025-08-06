@@ -12,7 +12,7 @@ module.exports = class great extends Command {
   }
   async run(msgObject, { target, reason }) {
     const mainserver = msgObject.client.guilds.cache.get("1395025885278765177");
-    let channel = mainserver.channels.cache.find("id", "770517198808678410");
+    let channel = mainserver.channels.cache.find("id", "1400143051694801066");
     channel
       .fetchMessages()
       .then(messages => {
@@ -20,7 +20,7 @@ module.exports = class great extends Command {
         let made = new Date(randomMsg.createdTimestamp);
         let date = made.toDateString();
         msgObject.reply(
-          `<#770517198808678410> - ${date}:\n\  ${randomMsg.content}`
+          `<#1400143051694801066> - ${date}:\n\  ${randomMsg.content}`
         );
       })
       .catch(console.error);

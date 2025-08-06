@@ -29,7 +29,7 @@ module.exports = class changelog extends Command {
       if (msgObject.member.roles.cache.find(role => role.name === "Admin")) {
         return true;
       } else if (
-        msgObject.author == this.client.users.cache.get("753778820733206629")
+        msgObject.author == this.client.users.cache.get("1160424627521212417")
       ) {
         return true;
       } else if (msgObject.member.roles.cache.find(role => role.name == "Moderator")) {
@@ -53,13 +53,13 @@ module.exports = class changelog extends Command {
       .setColor("RANDOM")
       .setAuthor(
         `${msgObject.member.displayName}`,
-        `${msgObject.author.avatarURL}`
+        `${msgObject.author.avatarURL()}`
       )
       .setTitle(`Server Startup`)
       .setDescription(`${msgObject.author} is conducting a server startup!`)
       .addField(
         `:link: Link`,
-        `[New Haven County](https://www.roblox.com/games/5998379341/MayflowerWARE)`
+        `[New Haven County](https://www.roblox.com/games/97947775346425/New-Haven-County)`
       )
       .addField(`:book: Notes`, `**__${notes}__**`)
       .setTimestamp();

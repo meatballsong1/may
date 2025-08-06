@@ -22,9 +22,9 @@ module.exports = class changelog extends Command {
   async run(msgObject, { description }) {
     let channel = this.client.guilds.cache
       .get("1395025885278765177")
-      .channels.cache.find("id", "781717353594486800");
+      .channels.cache.find("id", "1398077979766161521");
     channel.send("@everyone");
-    let Embed = new Discord.RichEmbed()
+    let Embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setTitle("Change Log")
       .setDescription(description)
