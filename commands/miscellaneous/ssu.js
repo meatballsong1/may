@@ -47,7 +47,7 @@ module.exports = class changelog extends Command {
   }
   async run(msgObject, { notes }) {
     let channel = this.client.guilds
-      .get("1395025885278765177")
+      cache.get("1395025885278765177")
       .channels.cache.find("id", "782467706439467040");
     let Embed = new Discord.RichEmbed()
       .setColor("RANDOM")
