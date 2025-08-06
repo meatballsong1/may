@@ -41,7 +41,7 @@ module.exports = class SSUCommand extends Command {
   async run(msgObject, { notes }) {
     const channel = this.client.guilds.cache
       .get("1395025885278765177")
-      .channels.cache.get("782467706439467040");
+      .channels.cache.get("1398060322841170000");
 
     const embed = new MessageEmbed()
       .setColor("RANDOM")
