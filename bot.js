@@ -2,6 +2,7 @@ const http = require("http");
 const express = require("express");
 const app = express();
 var server = require("http").createServer(app);
+require('dotenv').config()
 app.get("/", (request, response) => {
   console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
