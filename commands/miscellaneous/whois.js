@@ -22,7 +22,7 @@ module.exports = class whois extends Command {
     let made = new Date(argUser.createdTimestamp);
     let date = made.toDateString();
     let editMessage = await msgObject.reply("Fetching user's data...");
-    let Embed = new Discord.RichEmbed()
+    let Embed = new Discord.MessageEmbed()
       .setAuthor(argUser.tag, argUser.avatarURL)
       .setColor("RANDOM")
       .setTitle("**User Information**")
