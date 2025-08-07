@@ -53,7 +53,7 @@ module.exports = class credits extends Command {
     }
     const embed = new Discord.MessageEmbed()
       .setTimestamp()
-      .setTitle(`${args.target}'s Moderation Appeal`)
+      .setTitle(`${args.target} 's Moderation Appeal`)
       .setDescription(choice);
     webhook.send("", {
       username: "Moderation",
