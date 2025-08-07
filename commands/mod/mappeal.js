@@ -34,9 +34,10 @@ module.exports = class credits extends Command {
   }
   async run(message, args) {
     var webhook = new Discord.WebhookClient(
-      "1399570464208195664",
-      "FmyXxPtlZN27801AYE88MZgImnhA-98IwERTwc0j_qCVImxqHa8JpMfTBvm12dtunCiy"
+      "1403082698024681472",
+      "10ztnaq_5bb6cN6cXTJK6dTshuDyFwB_wCxaCMthUyTH05zonq2XIVFuW1lvExF8zucb"
     );
+
     var nickname;
     if (message.member.nickname) {
       nickname = message.member.nickname;
@@ -50,7 +51,7 @@ module.exports = class credits extends Command {
     if (args.option == "deny") {
       choice = "Denied";
     }
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
       .setTimestamp()
       .setTitle(`${args.target}'s Moderation Appeal`)
       .setDescription(choice);
