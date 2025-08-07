@@ -41,7 +41,7 @@ module.exports = class whois extends Command {
     let data = await request({
       uri: `https://verify.eryn.io/api/user/${argUser.id}`,
       json: true,
-      simple: false
+      simple: false // h
     });
     if (data.robloxUsername !== undefined) {
       editMsg.edit("A roblox account is linked! Fetching data...");
