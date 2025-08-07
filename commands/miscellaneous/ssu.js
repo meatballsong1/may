@@ -29,10 +29,10 @@ module.exports = class SSUCommand extends Command {
     if (msgObject.guild.id == "1395025885278765177") {
       const hasRole = roleName =>
         msgObject.member.roles.cache.some(role => role.name === roleName);
-      if (hasRole("Admin") || hasRole("Moderator")) return true;
+      if (hasRole("Community Admin") || hasRole("Community Moderator")) return true;
       if (msgObject.author.id === "1160424627521212417") return true;
 
-      return "Sorry 😣! You must be a Moderator or Admin!";
+      return "Sorry 😣! You must be a Community Moderator or Community Admin!";
     } else {
       return `Sorry 😣! You must use this command in the ${MainServer?.name || "Main Server"}!`;
     }

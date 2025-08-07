@@ -34,12 +34,12 @@ module.exports = class gunban extends Command {
       return "Sorry 😣! This command is currently disabled!"
     const MainServer = msgObject.client.guilds.cache.get("1395025885278765177");
     if (msgObject.guild.id == 1395025885278765177) {
-      if (msgObject.member.roles.cache.find(role => role.name === "Moderator")) {
+      if (msgObject.member.roles.cache.find(role => role.name === "Community Moderator")) {
         return true;
-      } else if (msgObject.member.roles.cache.find(role => role.name === "Admin")) {
+      } else if (msgObject.member.roles.cache.find(role => role.name === "Community Administrator")) {
         return true;
       }
-      return "Sorry 😣! You must be a Moderator or Admin!";
+      return "Sorry 😣! You must be a Community Moderator or Community Administrator!";
     } else {
       return (
         "Sorry :persevere:! You must use this command in the " +
