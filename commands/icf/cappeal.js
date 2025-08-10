@@ -70,10 +70,11 @@ module.exports = class credits extends Command {
       }
             const embed = new Discord.MessageEmbed()
                 .setTimestamp()
-                .setTitle(`${args.target}'s Citizenship Appeal`)
+                .setTitle(`${args.username}'s Citizenship Appeal`)
                 .setDescription(choice)
             webhook.send('', {
                 username: 'Citizenship',
+                content: `cc: ${args.target}`
                 embeds: [embed]
             })
             message.reply('Successfully sent your appeal message! 🤗')
