@@ -45,10 +45,6 @@ module.exports = class SSUCommand extends Command {
 
     const Embed = new MessageEmbed()
       .setColor("RANDOM")
-      .setAuthor({
-        name: msgObject.member.username,
-        iconURL: msgObject.author.displayAvatarURL()
-      })
       .setTitle("Server Startup")
       .setDescription(`${msgObject.author} is conducting a server startup!`)
       .addField(
