@@ -74,7 +74,7 @@ module.exports = class credits extends Command {
                 .setDescription(choice)
             webhook.send('', {
                 username: 'Citizenship',
-                content: `cc: ${args.target}`
+                content: `cc: ${args.target}`,
                 embeds: [embed]
             })
             message.reply('Successfully sent your appeal message! 🤗')
