@@ -22,6 +22,7 @@ module.exports = class exile extends Command {
   }
   
   hasPermission(message){
+       return "Sorry 😣! This command is currently disabled!"
     if(message.member.roles.cache.find(role => role.name == "Admin")){
       return true 
     } else {
