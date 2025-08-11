@@ -4,7 +4,7 @@ const {
 } = require('discord.js-commando')
 
 const roblox = require("noblox.js")
-require('dotenv').config()
+//require('dotenv').config() hi
 module.exports = class credits extends Command {
     constructor(client) {
         super(client, {
@@ -62,6 +62,8 @@ module.exports = class credits extends Command {
         const user = await roblox.setCookie(robloxToken); 
         let playerName 
         let playerID
+        console.log(robloxToken)
+        console.log(process.env.ROBLOX)
 
         playerID = await roblox.getIdFromUsername(args.target);
         playerName = await roblox.getUsernameFromId(playerID)
