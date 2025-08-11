@@ -40,17 +40,17 @@ module.exports = class RegisterCommand extends Command {
 
     const member = msgObject.member;
 
-    // Check if they already have the role
+    // Already registered check
     if (member.roles.cache.has(roleId)) {
       return msgObject.reply(`You already registered in the ${election} election.`);
     }
 
-    // Ask them to reply with the oath
+    // Ask them to reply
     await msgObject.reply(`Please reply to this message with the following oath exactly:\n\n\`\`\`\n${oathText}\n\`\`\``);
 
-    // Set up message collector
+    // Collector for v12
     const filter = m => m.author.id === msgObject.author.id;
-    const collector = msgObject.channel.createMessageCollector({ filter, time: 60000 }); // 60s to respond
+    const collector = msgObject.channel.createMessageCollector(filter, { time: 60000 });
 
     collector.on("collect", async m => {
       if (m.content.trim() === oathText) {
